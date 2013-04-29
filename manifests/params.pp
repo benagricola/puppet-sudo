@@ -55,6 +55,17 @@ class sudo::params {
     default => 'root',
   }
 
+  $default_directives = $::operatingsystem ? {
+    default => 'root ALL=(ALL) ALL',
+  }
+
+  $directive_defaults = {
+    ensure  => present,
+    content => '',
+    source  => '',
+    order   => '20',
+  }
+
   # General Settings
   $my_class = ''
   $source = ''
